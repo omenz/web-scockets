@@ -3,10 +3,11 @@ import {StompConfig, StompService} from '@stomp/ng2-stompjs';
 import {Message} from '@stomp/stompjs';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import * as SockJS from 'sockjs-client';
 
 export const stompConfig: StompConfig = {
   // Which server?
-  url: 'ws://127.0.0.1:4200/ws_api',
+  url: new SockJS('/ws_api'),
 
   // Headers
   // Typical keys: login, passcode, host
@@ -34,13 +35,8 @@ export class WebSocketService {
 
   constructor(private stompService: StompService) { }
 
-  public subscribe(): void {
-    const stomp_subscription: Observable<Message> = this.stompService.subscribe('/topic/greetings');
-
-    stomp_subscription.map((message: Message) => {
-      return message.body;
-    }).subscribe((msg_body: string) => {
-      console.log(`Received: ${msg_body}`);
-    });
+  public subscribe(): Observable<Message> {
+    // this.stompService.publish('/app/hello', 'My important message');
+    return this.stompService.subscribe('/topic/greetings');
   }
 }
