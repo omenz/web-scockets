@@ -36,7 +36,7 @@ export class WebSocketService {
   constructor(private stompService: StompService) { }
 
   public subscribe(): Observable<Message> {
-    // this.stompService.publish('/app/hello', 'My important message');
+    this.stompService.publish('/app/hello', 'My important message');
     return this.stompService.subscribe('/topic/greetings');
   }
 }
