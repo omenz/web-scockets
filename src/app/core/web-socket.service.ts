@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {StompConfig, StompService} from '@stomp/ng2-stompjs';
 import {Message} from '@stomp/stompjs';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 export const stompConfig: StompConfig = {
   // Which server?
