@@ -1,6 +1,6 @@
 const PROXY_CONFIG = [
   {
-   "context": ["/ws_api"],
+   "context": ["/ws_api", "/actuator", "/login"],
    "target": "http://localhost:9000",
    "secure": false,
    "ws": true
