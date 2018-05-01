@@ -8,13 +8,13 @@ import * as SockJS from 'sockjs-client';
 export const stompConfig: StompConfig = {
   // Which server?
   // url: new SockJS('/ws_api'),
-  url: 'ws://localhost:9000/ws_api',
+  url: 'ws://localhost:9000/ws_api',  //no sock js is used this way
 
   // Headers
   // Typical keys: login, passcode, host
   headers: {
-    login: 'admin',
-    passcode: 'admin'
+    login: '',
+    passcode: ''
   },
 
   // How often to heartbeat?
