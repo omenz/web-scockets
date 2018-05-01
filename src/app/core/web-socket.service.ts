@@ -7,7 +7,8 @@ import * as SockJS from 'sockjs-client';
 
 export const stompConfig: StompConfig = {
   // Which server?
-  url: new SockJS('/ws_api'),
+  // url: new SockJS('/ws_api'),
+  url: 'ws://localhost:9000/ws_api',
 
   // Headers
   // Typical keys: login, passcode, host
