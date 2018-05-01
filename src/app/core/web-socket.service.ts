@@ -33,10 +33,14 @@ export const stompConfig: StompConfig = {
 @Injectable()
 export class WebSocketService {
 
-  constructor(private stompService: StompService) { }
+  constructor(private stompService: StompService) {
+  }
 
   public subscribe(): Observable<Message> {
-    this.stompService.publish('/app/hello', 'My important message');
     return this.stompService.subscribe('/topic/greetings');
+  }
+
+  public send(message: string): void {
+    this.stompService.publish('/app/hello', message);
   }
 }
